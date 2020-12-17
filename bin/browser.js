@@ -249,7 +249,8 @@ const callChrome = async pup => {
             await page.close();
         }
 
-        await remoteInstance ? browser.disconnect() : browser.close();
+        await browser.disconnect();
+        await browser.close();
     } catch (exception) {
         if (browser) {
 
@@ -257,7 +258,8 @@ const callChrome = async pup => {
                 await page.close();
             }
 
-            await remoteInstance ? browser.disconnect() : browser.close();
+            await browser.disconnect();
+            await browser.close();
         }
 
         console.error(exception);
